@@ -23,6 +23,8 @@ switch(choice)
 try
 {
    gHPTests.TitleTest();
+   gHPTests.PageSourceAndURLTest();
+   gHPTests.GSTest();
 }
 catch(AssertionException)
 {
