@@ -22,12 +22,14 @@ switch(choice)
 }
 try
 {
-   gHPTests.TitleTest();
-   gHPTests.PageSourceAndURLTest();
-   gHPTests.GSTest();
+   //gHPTests.TitleTest();
+   //gHPTests.PageSourceAndURLTest();
+   //gHPTests.GSTest();
+  //gHPTests.GmailLinkTest();
+    gHPTests.ImagesLinkTest();
 }
 catch(AssertionException)
 {
-    Console.WriteLine("Title test - Fail");
+    Console.WriteLine("Fail");
 }
 gHPTests.Destruct();

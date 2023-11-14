@@ -46,10 +46,27 @@ namespace SeleniumExamples
             IWebElement searchInputTextBox = driver.FindElement(By.Id("APjFqb"));
             searchInputTextBox.SendKeys("Dell laptop");
             Thread.Sleep(2000);
-            IWebElement gsButton = driver.FindElement(By.Name("btnK"));
+            //IWebElement gsButton = driver.FindElement(By.Name("btnK"));
+            IWebElement gsButton = driver.FindElement(By.ClassName("gNO89b"));
             gsButton.Click();
             Assert.AreEqual("Dell laptop - Google Search",driver.Title);
             Console.WriteLine("GS test - Pass");
+        }
+
+        public void GmailLinkTest()
+        {
+            driver.FindElement(By.LinkText("Gmail")).Click();
+            Thread.Sleep(2000);
+            //Assert.That(driver.Title.Contains("Gmail"));
+            Assert.That(driver.Url.Contains("gmail"));
+            Console.WriteLine("Gmail link test - Pass");
+        }
+        public void ImagesLinkTest()
+        {
+            driver.FindElement(By.PartialLinkText("mag")).Click();
+            Thread.Sleep(2000);
+            Assert.That(driver.Title.Contains("Images"));
+            Console.WriteLine("Images link test - Pass");
         }
 
         public void Destruct()
