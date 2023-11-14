@@ -4,8 +4,7 @@ using NUnit.Framework;
 AmazonTests amazonTests = new AmazonTests();
 amazonTests.InitializeChromeDriver();
 try
-{
-    
+{  
     amazonTests.TitleTest();
     amazonTests.OrganisationTypeTest();
 }
