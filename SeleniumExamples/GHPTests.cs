@@ -55,25 +55,37 @@ namespace SeleniumExamples
 
         public void GmailLinkTest()
         {
+            driver.Navigate().Back();
             driver.FindElement(By.LinkText("Gmail")).Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             //Assert.That(driver.Title.Contains("Gmail"));
             Assert.That(driver.Url.Contains("gmail"));
             Console.WriteLine("Gmail link test - Pass");
         }
         public void ImagesLinkTest()
         {
+            driver.Navigate().Back();
             driver.FindElement(By.PartialLinkText("mag")).Click();
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             Assert.That(driver.Title.Contains("Images"));
             Console.WriteLine("Images link test - Pass");
         }
         public void LocalizationTest()
         {
+            driver.Navigate().Back();
             string local=driver.FindElement(By.XPath("/html/body/div[1]/div[6]/div[1]")).Text;
-            Thread.Sleep(2000);
+            Thread.Sleep(3000);
             Assert.That(local.Equals("India"));
             Console.WriteLine("Localization test - Pass");
+        }
+
+        public void GAppYoutubeTest()
+        {
+            driver.FindElement(By.ClassName("gb_d")).Click();
+            Thread.Sleep(3000);
+            driver.FindElement(By.XPath("//*[@id=\"yDmH0d\"]/c-wiz/div/div/c-wiz/div/div/div[2]/div[2]/div[1]/ul/li[4]/a/div/span")).Click();
+            Thread.Sleep(3000);
+            Assert.That("Youtube".Equals(driver.Title));
         }
 
         public void Destruct()
