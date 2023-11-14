@@ -1,19 +1,31 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using SeleniumExamples;
 
-IWebDriver driver = new ChromeDriver();
-driver.Url = "https://www.google.com/";
-Thread.Sleep(2000);
-string title = driver.Title;
+
 //Assert.That(title == "Gooogle");
+GHPTests gHPTests=new GHPTests();
+Console.Write("Enter your choice:\n1.Chrome\n2.Edge\n");
+int choice=Convert.ToInt32(Console.ReadLine());
+switch(choice)
+{
+    case 1:
+        gHPTests.InitializeChromeDriver();
+        break;  
+    case 2:
+        gHPTests.InitializeEdgeDriver();
+        break;
+    default:
+        Console.WriteLine("Invalid choice");
+        break;
+}
 try
 {
-    Assert.AreEqual("Gooogle", title);
-    Console.WriteLine("Pass");
+   gHPTests.TitleTest();
 }
 catch(AssertionException)
 {
-    Console.WriteLine("Fail");
+    Console.WriteLine("Title test - Fail");
 }
-driver.Close();
+gHPTests.Destruct();
