@@ -49,7 +49,7 @@ namespace Assignment2_14_11_2023
         {
             IWebElement searchInputTextBox = driver.FindElement(By.Id("APjFqb"));
             searchInputTextBox.SendKeys("What's special for Diwali 2023");
-            Thread.Sleep(5000);
+            Thread.Sleep(6000);
             IWebElement gsButton = driver.FindElement(By.ClassName("gNO89b"));
             gsButton.Click();
             Assert.AreEqual("What's special for Diwali 2023 - Google Search", driver.Title);
