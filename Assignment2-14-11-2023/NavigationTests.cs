@@ -23,24 +23,43 @@ namespace Assignment2_14_11_2023
         public void GoToYahooTest()
         {
             driver.Navigate().GoToUrl("https://www.yahoo.com");
+            Thread.Sleep(1000);
             Console.WriteLine("Go to Yahoo test - Pass");
         }
         public void BackToGoogleTest()
-        {
-            
+        {  
             driver.Navigate().Back();
-            //Thread.Sleep(1000);
+            Thread.Sleep(2000);
             Console.WriteLine("Back to Google test - Pass");
+        }
+        public void BackToYahooTest()
+        { 
+            driver.Navigate().Forward();
+            Thread.Sleep(2000);
+            Console.WriteLine("Back to Yahoo test - Pass");
+        }
+
+        public void BackToGoogleAgainTest()
+        {
+            driver.Navigate().Back();
+            Thread.Sleep(2000);
+            Console.WriteLine("Back to Google again test - Pass");
         }
         public void GSTest()
         {
             IWebElement searchInputTextBox = driver.FindElement(By.Id("APjFqb"));
-            searchInputTextBox.SendKeys("What special for Diwali 2023?");
-            Thread.Sleep(2000);
-            //IWebElement gsButton = driver.FindElement(By.Name("btnK"));
+            searchInputTextBox.SendKeys("What's special for Diwali 2023");
+            Thread.Sleep(5000);
             IWebElement gsButton = driver.FindElement(By.ClassName("gNO89b"));
             gsButton.Click();
+            Assert.AreEqual("What's special for Diwali 2023 - Google Search", driver.Title);
             Console.WriteLine("GS test - Pass");
+        }
+        public void RefreshTest()
+        {
+            driver.Navigate().Refresh();
+            Thread.Sleep(3000);
+            Console.WriteLine("Refresh test - Pass");
         }
         public void Exit()
         {

@@ -7,9 +7,10 @@ try
 {
     navigationTests.GoToYahooTest();
     navigationTests.BackToGoogleTest();
-    navigationTests.GoToYahooTest();
-    navigationTests.BackToGoogleTest();
+    navigationTests.BackToYahooTest();
+    navigationTests.BackToGoogleAgainTest();
     navigationTests.GSTest();
+    navigationTests.RefreshTest();
 }
 catch(AssertionException)
 {
