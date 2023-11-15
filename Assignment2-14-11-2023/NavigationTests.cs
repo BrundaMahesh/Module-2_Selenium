@@ -24,6 +24,7 @@ namespace Assignment2_14_11_2023
         {
             driver.Navigate().GoToUrl("https://www.yahoo.com");
             Thread.Sleep(1000);
+            Assert.AreEqual("Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports & Videos", driver.Title);
             Console.WriteLine("Go to Yahoo test - Pass");
         }
         public void BackToGoogleTest()

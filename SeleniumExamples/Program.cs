@@ -74,10 +74,12 @@ foreach (var item in drivers)
     }
     try
     {
-        amazonTests.TitleTest();
-        amazonTests.LogoClickTest();
-        amazonTests.SearchProductTest();
-        amazonTests.TodaysDealsTest();
+       // amazonTests.TitleTest();
+        //amazonTests.LogoClickTest();
+       // amazonTests.SearchProductTest();
+       // amazonTests.TodaysDealsTest();
+        //amazonTests.SignInAndAccountListTest();
+        amazonTests.SearchAndFilterProductByBrandTest();
         
     }
 
