@@ -80,6 +80,7 @@ foreach (var item in drivers)
        // amazonTests.TodaysDealsTest();
         //amazonTests.SignInAndAccountListTest();
         amazonTests.SearchAndFilterProductByBrandTest();
+        amazonTests.SortBySelectTest();
         
     }
 

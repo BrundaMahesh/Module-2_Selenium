@@ -2,6 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -84,21 +85,31 @@ namespace SeleniumExamples
         public void SearchAndFilterProductByBrandTest()
         {
             driver.FindElement(By.Id("twotabsearchtextbox")).SendKeys("mobile phones");
-            Thread.Sleep(5000);
-            driver.FindElement(By.Id("nav-search-submit-button")).Click();
-            IWebElement motoCheckBox=driver.FindElement(By.XPath("//*[@id=\"p_89/Motorola\"]/span/a/div/label/i"));
             Thread.Sleep(3000);
-            motoCheckBox.Click();
-            Thread.Sleep(2000);
-            
-            Assert.That(motoCheckBox.GetAttribute("checked").Equals("checked"));
+            driver.FindElement(By.Id("nav-search-submit-button")).Click();
+         
+            //Motorola checkbox
+            driver.FindElement(By.XPath("//*[@id=\"p_89/Motorola\"]/span/a/div/label/i")).Click();
+            Thread.Sleep(3000);
+            Assert.True(driver.FindElement(By.XPath("//*[@id=\"p_89/Motorola\"]/span/a/div/label/input")).Selected);
             Console.WriteLine("Motorola is selected");
+
+            //see more
             driver.FindElement(By.ClassName("a-expander-prompt")).Click();
-            IWebElement appleCheckBox=driver.FindElement(By.XPath("//*[@id=\"p_89/Apple\"]/span/a/span"));
-            Thread.Sleep(2000);
-            appleCheckBox.Click();
-            Assert.True(appleCheckBox.Selected);
-            Console.WriteLine("Apple is selected");
+            
+            //BLU checkbox
+            driver.FindElement(By.XPath("//*[@id=\"p_89/BLU\"]/span/a/div/label/i")).Click();
+            Thread.Sleep(3000);
+            Assert.True(driver.FindElement(By.XPath("//*[@id=\"p_89/BLU\"]/span/a/div/label/input")).Selected);
+            Console.WriteLine("BLU is selected");
+        }
+        public void SortBySelectTest()
+        {
+            IWebElement sortBy = driver.FindElement(By.ClassName("a-native-dropdown.a-declarative"));
+            SelectElement sortBySelect = (SelectElement)sortBy;
+            sortBySelect.SelectByValue("1");
+            Thread.Sleep(5000);
+            Console.WriteLine((sortBySelect.SelectedOption));
         }
         public void Destruct()
         {

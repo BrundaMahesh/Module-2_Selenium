@@ -31,12 +31,14 @@ namespace Assignment2_14_11_2023
         {  
             driver.Navigate().Back();
             Thread.Sleep(2000);
+            Assert.AreEqual("Google",driver.Title);
             Console.WriteLine("Back to Google test - Pass");
         }
         public void BackToYahooTest()
         { 
             driver.Navigate().Forward();
             Thread.Sleep(2000);
+            Assert.AreEqual("Yahoo | Mail, Weather, Search, Politics, News, Finance, Sports & Videos", driver.Title);
             Console.WriteLine("Back to Yahoo test - Pass");
         }
 
@@ -44,6 +46,7 @@ namespace Assignment2_14_11_2023
         {
             driver.Navigate().Back();
             Thread.Sleep(2000);
+            Assert.AreEqual("Google", driver.Title);
             Console.WriteLine("Back to Google again test - Pass");
         }
         public void GSTest()
@@ -60,6 +63,7 @@ namespace Assignment2_14_11_2023
         {
             driver.Navigate().Refresh();
             Thread.Sleep(3000);
+            Assert.AreEqual("What's special for Diwali 2023 - Google Search", driver.Title);
             Console.WriteLine("Refresh test - Pass");
         }
         public void Exit()
