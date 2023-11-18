@@ -142,7 +142,7 @@ namespace SeleniumNUnitExamples
             element.Click();
             IAlert simpleAlert = driver.SwitchTo().Alert();
             Console.WriteLine("Alert text is "+ simpleAlert.Text);
-            simpleAlert.Accept();
+            simpleAlert.Accept(); //ok
             Thread.Sleep(5000);
 
             element = driver.FindElement(By.Id("confirmButton"));
@@ -150,7 +150,7 @@ namespace SeleniumNUnitExamples
             element.Click();
             IAlert confirmationAlert = driver.SwitchTo().Alert();
             Console.WriteLine("Alert text is " + confirmationAlert.Text);
-            confirmationAlert.Dismiss();
+            confirmationAlert.Dismiss(); //for cancel
             Thread.Sleep(5000);
 
 
