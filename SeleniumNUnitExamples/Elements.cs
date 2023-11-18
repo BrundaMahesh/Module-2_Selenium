@@ -102,5 +102,34 @@ namespace SeleniumNUnitExamples
             //IWebElement submitButton = driver.FindElement(By.Id("submit"));
             //submitButton.Click();
         }
+
+        [Test]
+        public void TestWindows()
+        {
+            driver.Url = "https://demoqa.com/browser-windows";
+            string parentWindowHandle = driver.CurrentWindowHandle;
+            Console.WriteLine("Parent window's handle -> " +parentWindowHandle);
+
+            IWebElement clickElement = driver.FindElement(By.Id("tabButton"));
+            for (int i = 0; i < 3; i++)
+            {
+                clickElement.Click();
+                Thread.Sleep(3000);
+            }
+            List<string> listOfWindow=driver.WindowHandles.ToList();
+           
+            foreach (var handle in listOfWindow)
+            {
+                Console.WriteLine("Switching to window -> "+handle);
+                driver.SwitchTo().Window(handle);
+                Thread.Sleep(2000);
+                Console.WriteLine("Navigating to google.com");
+                driver.Navigate().GoToUrl("https://google.com");
+                Thread.Sleep(2000);
+
+            }
+            driver.SwitchTo().Window(parentWindowHandle);
+            driver.Quit();
+        }
     }
 }
