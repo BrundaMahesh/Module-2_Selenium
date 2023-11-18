@@ -131,5 +131,39 @@ namespace SeleniumNUnitExamples
             driver.SwitchTo().Window(parentWindowHandle);
             driver.Quit();
         }
+
+        [Test]
+        public void TestAlerts()
+        {
+            driver.Url = "https://demoqa.com/alerts";
+            IWebElement element = driver.FindElement(By.Id("alertButton"));
+            Thread.Sleep(5000);
+            //((IJavaScriptExecutor)driver).ExecuteScript("arguments[0].click()", element);
+            element.Click();
+            IAlert simpleAlert = driver.SwitchTo().Alert();
+            Console.WriteLine("Alert text is "+ simpleAlert.Text);
+            simpleAlert.Accept();
+            Thread.Sleep(5000);
+
+            element = driver.FindElement(By.Id("confirmButton"));
+            Thread.Sleep(5000);
+            element.Click();
+            IAlert confirmationAlert = driver.SwitchTo().Alert();
+            Console.WriteLine("Alert text is " + confirmationAlert.Text);
+            confirmationAlert.Dismiss();
+            Thread.Sleep(5000);
+
+
+            element = driver.FindElement(By.Id("promtButton"));
+            element.Click();
+            Thread.Sleep(5000);
+            IAlert promptAlert = driver.SwitchTo().Alert();
+            Console.WriteLine("Alert text is " + promptAlert.Text);
+            promptAlert.SendKeys("Accepting the alert");
+            Thread.Sleep(5000);
+            promptAlert.Accept();
+
+
+        }
     }
 }
