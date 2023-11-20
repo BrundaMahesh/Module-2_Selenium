@@ -87,14 +87,37 @@ namespace SeleniumNUnitExamples
         }
 
 
+        //[Test]
+        //[Author("AAA", "AAA@gmail.com")]
+        //[Description("Check for invalid login")]
+        //[Category("Regression testing")]
+        //[TestCase("abc@gmail.com","123")]
+        //[TestCase("def@gmail.com","456")]
+        //[TestCase("ghi@gmail.com","789")]
+        //public void LoginTestWithInvalidData(string email,string password)
+        //{
+        //    DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
+        //    fluentWait.Timeout = TimeSpan.FromSeconds(10);
+        //    fluentWait.PollingInterval = TimeSpan.FromMilliseconds(100);
+        //    fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
+        //    fluentWait.Message = "Element not found";
+
+        //    IWebElement emailInput = fluentWait.Until(d => d.FindElement(By.Id("session_key")));
+        //    IWebElement passwordInput = fluentWait.Until(d => d.FindElement(By.Id("session_password")));
+
+        //    emailInput.SendKeys(email); 
+        //    passwordInput.SendKeys(password);
+        //    ClearForm(emailInput);
+        //    ClearForm(passwordInput);
+
+        //}
+
         [Test]
         [Author("AAA", "AAA@gmail.com")]
         [Description("Check for invalid login")]
         [Category("Regression testing")]
-        [TestCase("abc@gmail.com","123")]
-        [TestCase("def@gmail.com","456")]
-        [TestCase("ghi@gmail.com","789")]
-        public void LoginTestWithInvalidData(string email,string password)
+        [TestCaseSource(nameof(InvalidLoginData))]
+        public void LoginTestWithInvalidData(string email, string password)
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(10);
@@ -105,11 +128,20 @@ namespace SeleniumNUnitExamples
             IWebElement emailInput = fluentWait.Until(d => d.FindElement(By.Id("session_key")));
             IWebElement passwordInput = fluentWait.Until(d => d.FindElement(By.Id("session_password")));
 
-            emailInput.SendKeys(email); 
+            emailInput.SendKeys(email);
             passwordInput.SendKeys(password);
             ClearForm(emailInput);
             ClearForm(passwordInput);
 
+        }
+        static object[] InvalidLoginData()
+        {
+            return new object[]
+            {
+                new object[] {"abc@gmail.com","123"},
+                new object[] {"def@gmail.com","456"},
+                new object[] {"ghi@gmail.com","789"},
+            };
         }
     }
 }
