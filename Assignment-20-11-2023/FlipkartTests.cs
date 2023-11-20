@@ -33,9 +33,9 @@ namespace Assignment_20_11_2023
 
             IWebElement searchInput = fluentWait.Until(d => d.FindElement(By.XPath("//input[@name='q']")));
 
-            searchInput.SendKeys("retro");
+            searchInput.SendKeys("laptop");
             searchInput.SendKeys(Keys.Enter);
-            Assert.That(driver.Url.Contains("retro"));
+            Assert.That(driver.Url.Contains("laptop"));
 
         }
         
