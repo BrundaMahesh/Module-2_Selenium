@@ -76,7 +76,7 @@ namespace SeleniumNUnitExamples
             Screenshot screenshot = takesScreenshot.GetScreenshot();
 
             string currDir = Directory.GetParent(@"../../../").FullName;
-            string filename = currDir + "/Screenshots/ss_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".png";
+            string filename = currDir + "/Screenshots/ss_" + DateTime.Now.ToString("yyyy/MM/dd_HHmmss") + ".png";
 
             screenshot.SaveAsFile(filename);
             Console.WriteLine("Takes screenshot");
