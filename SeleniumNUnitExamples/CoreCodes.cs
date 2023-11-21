@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumNUnitExamples
 {
-    internal class CoreCodes
+    public class CoreCodes
     {
         Dictionary<string, string>? properties;
         public IWebDriver driver;
