@@ -90,25 +90,19 @@ namespace Assignment_20_11_2023
         public void ViewShoppingCartTest()
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(driver);
-            fluentWait.Timeout = TimeSpan.FromSeconds(5);
+            fluentWait.Timeout = TimeSpan.FromSeconds(10);
             fluentWait.PollingInterval = TimeSpan.FromMilliseconds(50);
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             fluentWait.Message = "Element not found";
 
             //IWebElement productFound = driver.FindElement(By.LinkText("Reading Glasses with LED Lights (LRG4)"));
 
-            //IWebElement closeButton = fluentWait.Until(d => d.FindElement(By.XPath("/html/body/div[5]/div/a")));
+            IWebElement closeButton = fluentWait.Until(d => d.FindElement(By.XPath("")));
 
-            //IWebElement id = driver.FindElement(By.XPath("//*[text()='My Shopping Cart: ']"));
-            //Assert.AreEqual("My Shopping Cart: At present, you have (1) items. ", id.Text);
-            //closeButton.Click();
-
-            IWebElement closebtn = fluentWait.Until(x => x.FindElement(By.XPath("//a[@class='fancybox-item fancybox-close']")));
             IWebElement id = driver.FindElement(By.XPath("//*[text()='My Shopping Cart: ']"));
-            Console.WriteLine(id.Text);
-            Assert.That(id.Text == "My Shopping Cart: At present, you have (1) items.");
-            Console.WriteLine("sussess");
-            closebtn.Click();
+            Assert.AreEqual("My Shopping Cart: At present, you have (1) items.", id.Text);
+            
+            closeButton.Click();
             Thread.Sleep(2000);
 
         }
