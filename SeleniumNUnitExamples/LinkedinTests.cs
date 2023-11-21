@@ -131,8 +131,17 @@ namespace SeleniumNUnitExamples
             emailInput.SendKeys(email);
             passwordInput.SendKeys(password);
             TakeScreenShot();
+
+            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", driver.FindElement(By.XPath("//button[@type='submit']")));
+            
+            Thread.Sleep(5000);
+            js.ExecuteScript("arguments[0].click();", driver.FindElement(By.XPath("//button[@type='submit']")));
+            
+
             ClearForm(emailInput);
             ClearForm(passwordInput);
+            
 
         }
         static object[] InvalidLoginData()
