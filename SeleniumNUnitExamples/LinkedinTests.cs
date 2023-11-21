@@ -141,8 +141,7 @@ namespace SeleniumNUnitExamples
 
             ClearForm(emailInput);
             ClearForm(passwordInput);
-            
-
+           
         }
         static object[] InvalidLoginData()
         {
