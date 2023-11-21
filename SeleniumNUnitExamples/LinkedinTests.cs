@@ -130,6 +130,7 @@ namespace SeleniumNUnitExamples
 
             emailInput.SendKeys(email);
             passwordInput.SendKeys(password);
+            TakeScreenShot();
             ClearForm(emailInput);
             ClearForm(passwordInput);
 
@@ -140,8 +141,10 @@ namespace SeleniumNUnitExamples
             {
                 new object[] {"abc@gmail.com","123"},
                 new object[] {"def@gmail.com","456"},
-                new object[] {"ghi@gmail.com","789"},
+                
             };
         }
+
+       
     }
 }
