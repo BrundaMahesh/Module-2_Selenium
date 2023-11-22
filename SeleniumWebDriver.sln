@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment-20-11-2023", "As
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rediff", "Rediff\Rediff.csproj", "{6589FDE2-A8F8-4242-B84B-1C18948D7F31}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Naaptol", "Naaptol\Naaptol.csproj", "{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naaptol-Assignment-22-11-2023", "Naaptol\Naaptol-Assignment-22-11-2023.csproj", "{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
