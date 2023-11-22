@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Naaptol.PageObjects
 {
-    internal class SearchedProductListPage
+    internal class NaaptolHomePage
     {
         IWebDriver driver;
-        public SearchedProductListPage(IWebDriver driver)
+        public NaaptolHomePage(IWebDriver driver)
         {
             this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);

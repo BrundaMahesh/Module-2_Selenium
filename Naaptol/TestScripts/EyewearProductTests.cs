@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Naaptol.PageObjects
+namespace Naaptol.TestScripts
 {
-    internal class HomePage
+    [TestFixture]
+    internal class EyewearProductTests:CoreCodes
     {
     }
 }

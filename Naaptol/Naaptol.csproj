@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="Screenshots\" />
-    <Folder Include="TestScripts\" />
   </ItemGroup>
 
 </Project>
