@@ -10,21 +10,22 @@ namespace Naaptol.PageObjects
 {
     internal class SearchedProductListPage
     {
-        IWebDriver driver;
-        public SearchedProductListPage(IWebDriver driver)
+        IWebDriver? driver;
+        public SearchedProductListPage(IWebDriver? driver)
         {
             this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
         }
 
         //Arrange
-        [FindsBy(How = How.Id, Using = "header_search_text")]
-        public IWebElement? SearchInputBox { get; set; }
+        [FindsBy(How = How.XPath, Using = "//div[@id='productItem5' and @pid='12612074']")]
+        public IWebElement? SelectProduct { get; set; }
 
         //Act
-        public void SearchClick(string text)
+        public SearchedProductListPage SelectedProduct()
         {
-            SearchInputBox?.SendKeys(text);
+            SelectProduct?.Click();
+            return new SearchedProductListPage(driver);
         }
     }
 }

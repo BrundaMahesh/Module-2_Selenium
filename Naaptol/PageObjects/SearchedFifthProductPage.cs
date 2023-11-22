@@ -10,21 +10,34 @@ namespace Naaptol.PageObjects
 {
     internal class SearchedFifthProductPage
     {
-        IWebDriver driver;
-        public SearchedFifthProductPage(IWebDriver driver)
+        IWebDriver? driver;
+        public SearchedFifthProductPage(IWebDriver? driver)
         {
             this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
         }
 
         //Arrange
-        [FindsBy(How = How.Id, Using = "header_search_text")]
-        public IWebElement? SearchInputBox { get; set; }
+        [FindsBy(How = How.XPath, Using = "//a[text()='Black-2.50']")]
+        public IWebElement? SelectedSize { get; set; }
+        
+        [FindsBy(How = How.XPath, Using = "//a[@id='cart-panel-button-0']")]
+        public IWebElement? BuyButton { get; set; }
 
-        //Act
-        public void SearchClick(string text)
+        [FindsBy(How = How.XPath, Using = "//a[@class='fancybox-item fancybox-close']")]
+        public IWebElement? CloseButton { get; set; }
+
+        public void Sizeselect()
         {
-            SearchInputBox?.SendKeys(text);
+            SelectedSize?.Click();
+        }
+        public void BuyNowButtonClicked()
+        {
+            BuyButton?.Click();
+        }
+        public void CloseButtonClicked()
+        {
+            CloseButton?.Click();
         }
     }
 }
