@@ -11,6 +11,7 @@ namespace Rediff.TestScripts
     internal class UserManagementTests : CoreCodes
     {
         //Asserts
+        /*
         [Test,Order(1),Category("Smoke Test")]
         public void CreateAccountLinkTest()
         {
@@ -31,18 +32,43 @@ namespace Rediff.TestScripts
 
             Assert.That(driver.Url.Contains("login"));
         }
+        */
 
-        [Test, Order(1), Category("Regression Test")]
-        public void CreateAccountTest()
+        //[Test, Order(1), Category("Regression Test")]
+        //public void CreateAccountTest()
+        //{
+        //    var homePage = new RediffHomePage(driver);
+        //    if (!driver.Url.Contains("https://www.rediff.com/"))
+        //    {
+        //        driver.Navigate().GoToUrl("https://www.rediff.com/");
+        //    }
+        //    var  createAccountPage = homePage.CreateAccountClick();
+        //    createAccountPage.FullNameType("Akash");
+        //    createAccountPage.RediffmailType("akash");
+        //    createAccountPage.CheckAvailabilityButtonClick();
+        //    Thread.Sleep(3000);
+
+        //    createAccountPage.CreateMyAccountBtnClick();
+        //    //Assert.That(driver.Url.Contains("register"));
+        //}
+
+        [Test, Order(2), Category("Regression Test")]
+        public void SignInTest()
         {
             var homePage = new RediffHomePage(driver);
             if (!driver.Url.Contains("https://www.rediff.com/"))
             {
                 driver.Navigate().GoToUrl("https://www.rediff.com/");
             }
-            homePage.CreateAccountClick();
+            var signInPage = homePage.SignInClick();
+            signInPage.UserNameType("Abhi");
+            signInPage.PasswordType("password");
+            signInPage.KeepSignInCheckBoxClick();
+            Assert.False(signInPage?.KeepSignInCheckBox?.Selected);
 
-            Assert.That(driver.Url.Contains("register"));
+            Thread.Sleep(3000);
+
+            signInPage?.SignInBtnClick();
         }
     }
 }

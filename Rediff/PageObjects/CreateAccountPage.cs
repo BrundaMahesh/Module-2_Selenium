@@ -28,6 +28,9 @@ namespace Rediff.PageObjects
         [FindsBy(How = How.XPath, Using = "//input[contains(@name,'btnchkavail')]")]
         public IWebElement? CheckAvailabilityButton { get; set; }
 
+        [FindsBy(How = How.Id, Using ="Register")]
+        public IWebElement? CreateMyAccountBtn { get; set; }
+
 
         //Act
         public void FullNameType(string fullName)
@@ -40,9 +43,13 @@ namespace Rediff.PageObjects
             rediffmailId?.SendKeys(email);
         }
 
-        public void CheckAvailabilityClick()
+        public void CheckAvailabilityButtonClick()
         {
             CheckAvailabilityButton?.Click();
+        }
+        public void CreateMyAccountBtnClick()
+        {
+            CreateMyAccountBtn?.Click();
         }
 
         public void FullNameClear()

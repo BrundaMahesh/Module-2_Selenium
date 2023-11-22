@@ -13,7 +13,7 @@ namespace Rediff.PageObjects
         IWebDriver driver;
         public RediffHomePage(IWebDriver driver) 
         {
-            this.driver=driver;
+            this.driver=driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
         }
 
@@ -27,7 +27,7 @@ namespace Rediff.PageObjects
 
 
         //Act
-        public void CreateAccountLinkClick()
+        /*public void CreateAccountLinkClick()
         {
             CreateAccountLink?.Click();
         }
@@ -36,11 +36,16 @@ namespace Rediff.PageObjects
         {
             SignInLink?.Click();
         }
-
+        */
         public CreateAccountPage CreateAccountClick()
         {
             CreateAccountLink?.Click();
             return new CreateAccountPage(driver);
+        }
+        public SignInPage SignInClick()
+        {
+            CreateAccountLink?.Click();
+            return new SignInPage(driver);
         }
     }
 }
