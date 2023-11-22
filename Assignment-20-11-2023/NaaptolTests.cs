@@ -82,7 +82,10 @@ namespace Assignment_20_11_2023
             chooseSize.Click();
 
             IWebElement clickHereToByButton = driver.FindElement(By.Id("cart-panel-button-0"));
-            Assert.That(driver.Url.Contains("reading-glasses-with-led-lights-lrg4"));
+            clickHereToByButton.Click();
+
+            IWebElement prodName = fluentWait.Until(d => d.FindElement(By.LinkText("Reading Glasses with LED Lights (LRG4)")));
+            Assert.AreEqual("Reading Glasses with LED Lights (LRG4)",prodName.Text);
         }
 
         [Test]
@@ -95,15 +98,11 @@ namespace Assignment_20_11_2023
             fluentWait.IgnoreExceptionTypes(typeof(NoSuchElementException));
             fluentWait.Message = "Element not found";
 
-            //IWebElement productFound = driver.FindElement(By.LinkText("Reading Glasses with LED Lights (LRG4)"));
-
-            IWebElement closeButton = fluentWait.Until(d => d.FindElement(By.XPath("")));
-
-            IWebElement id = driver.FindElement(By.XPath("//*[text()='My Shopping Cart: ']"));
-            Assert.AreEqual("My Shopping Cart: At present, you have (1) items.", id.Text);
-            
+            IWebElement closeButton = fluentWait.Until(d => d.FindElement(By.XPath("//a[@title='Close']")));
             closeButton.Click();
-            Thread.Sleep(2000);
+
+            string link = "https://www.naaptol.com/eyewear/reading-glasses-with-led-lights-lrg4/p/12612074.html";
+            Assert.AreEqual(driver.Url,link);
 
         }
 
