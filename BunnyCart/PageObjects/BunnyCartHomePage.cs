@@ -69,7 +69,7 @@ namespace BunnyCart.PageObjects
         {
             IWebElement modal = new WebDriverWait(driver,TimeSpan.FromSeconds(10))
                 .Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(
-                    By.XPath("//div[@class='modal-inner-wrap'])[position()=2]")));
+                    By.XPath("(//div[@class='modal-inner-wrap'])[position()=2]")));
 
             FirstNameInputBox?.SendKeys(firstName);
             LastNameInputBox?.SendKeys(lastName);
