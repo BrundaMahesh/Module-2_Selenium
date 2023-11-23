@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rediff", "Rediff\Rediff.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naaptol-Assignment-22-11-2023", "Naaptol\Naaptol-Assignment-22-11-2023.csproj", "{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BunnyCart", "BunnyCart\BunnyCart.csproj", "{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFB983CD-0651-4E3A-A327-D0DD95A4CE25}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
