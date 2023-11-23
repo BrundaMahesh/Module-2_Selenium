@@ -32,6 +32,9 @@ namespace BunnyCart.PageObjects
             return new ProductPage(driver);
         }
 
-       
+       public void Scroll(IWebElement element)
+        {
+            CoreCodes.ScrollIntoView(driver, element);
+        }
     }
 }

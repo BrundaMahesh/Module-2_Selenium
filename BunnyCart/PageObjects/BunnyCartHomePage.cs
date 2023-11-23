@@ -75,22 +75,20 @@ namespace BunnyCart.PageObjects
             LastNameInputBox?.SendKeys(lastName);
             EmailInputBox?.SendKeys(email);
 
-            ScrollIntoView(driver,PasswordInputBox);
+            //CoreCodes.ScrollIntoView(driver, modal.FindElement(By.Id("password")));
+            
+            CoreCodes.ScrollIntoView(driver, PasswordInputBox);
             PasswordInputBox?.SendKeys(password);
             ConfirmPasswordInputBox?.SendKeys(confirmPassword);
 
-            ScrollIntoView(driver, MobileInputBox);
+            CoreCodes.ScrollIntoView(driver, MobileInputBox);
             MobileInputBox?.SendKeys(mobileNumber);
             Thread.Sleep(1000);
             CreateAccountButton?.Click();
 
         }
 
-        static void ScrollIntoView(IWebDriver driver, IWebElement element)
-        {
-            IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
-        }
+      
 
 
         public SearchResultsPage TypeSearchInput(string searchText)

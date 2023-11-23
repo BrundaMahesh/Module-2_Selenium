@@ -11,6 +11,7 @@ namespace BunnyCart.TestScripts
     [TestFixture]
     internal class BunnyCartTests:CoreCodes
     {
+
         [Test]
         public void SignUpTest()
         {
