@@ -27,6 +27,7 @@ namespace Naaptol.PageObjects
         [FindsBy(How = How.XPath, Using = "//a[@class='fancybox-item fancybox-close']")]
         public IWebElement? CloseButton { get; set; }
 
+        //Act
         public void Sizeselect()
         {
             SelectedSize?.Click();
