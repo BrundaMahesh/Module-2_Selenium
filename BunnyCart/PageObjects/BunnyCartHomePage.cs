@@ -12,8 +12,8 @@ namespace BunnyCart.PageObjects
 {
     internal class BunnyCartHomePage
     {
-        IWebDriver driver;
-        public BunnyCartHomePage(IWebDriver driver)
+        IWebDriver? driver;
+        public BunnyCartHomePage(IWebDriver? driver)
         {
             this.driver = driver ?? throw new ArgumentException(nameof(driver));
             PageFactory.InitElements(driver, this);
@@ -75,11 +75,11 @@ namespace BunnyCart.PageObjects
             LastNameInputBox?.SendKeys(lastName);
             EmailInputBox?.SendKeys(email);
 
-            ScrollIntoView(driver, modal.FindElement(By.Id("password")));
+            ScrollIntoView(driver,PasswordInputBox);
             PasswordInputBox?.SendKeys(password);
             ConfirmPasswordInputBox?.SendKeys(confirmPassword);
 
-            ScrollIntoView(driver, modal.FindElement(By.Id("mobilenumber")));
+            ScrollIntoView(driver, MobileInputBox);
             MobileInputBox?.SendKeys(mobileNumber);
             Thread.Sleep(1000);
             CreateAccountButton?.Click();
@@ -89,7 +89,20 @@ namespace BunnyCart.PageObjects
         static void ScrollIntoView(IWebDriver driver, IWebElement element)
         {
             IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
-            js.ExecuteScript("arguments[0].scrollIntoview(true);", element);
+            js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
+        }
+
+
+        public SearchResultsPage TypeSearchInput(string searchText)
+        {
+            //if(SearchInput == null)
+            //{
+            //    throw new ArgumentNullException(nameof(SearchInput));
+            //}
+            SearchInput?.SendKeys(searchText);
+            SearchInput?.SendKeys(Keys.Enter);
+            return new SearchResultsPage(driver);
+
         }
     }
 }
