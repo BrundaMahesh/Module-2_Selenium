@@ -20,6 +20,23 @@ namespace BunnyCart.TestScripts
             bunnyCartHomePage.ClickCreateAccountLink();
             Thread.Sleep(1000);
 
+            try
+            {
+                Assert.That(driver?.FindElement(By.XPath("//div[" +
+                    "@class='modal-inner-wrap']//following::h1[2]")).Text,
+                    Is.EqualTo("Create an Account"));
+                test = extent.CreateTest("Create Account Link Test");
+                test.Pass("Create Account Link success");
+                
+            }
+            catch(AssertionException)
+            {
+                test = extent.CreateTest("Create Account Link Test");
+                test.Fail("Create Account Link failed");
+                
+            }
+
+
             Assert.That(driver?.FindElement(By.XPath("//div[" +
                  "@class='modal-inner-wrap']//following::h1[2]")).Text,
                  Is.EqualTo("Create an Account"));
