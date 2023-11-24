@@ -9,5 +9,6 @@ namespace Naaptol.Utilities
     internal class ExcelData
     {
         public string? SearchText {  get; set; }
+        public string? QtyIncrease { get; set; }
     }
 }

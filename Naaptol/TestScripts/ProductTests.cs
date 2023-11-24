@@ -54,7 +54,17 @@ namespace Naaptol.TestScripts
                 //Thread.Sleep(2000);
 
                 // buyNow.CloseButtonClicked();
-                Thread.Sleep(2000);
+                //Thread.Sleep(2000);
+
+                
+
+                string?  qtyincrease = excelData?.QtyIncrease;
+
+                Console.WriteLine($"Qty increase: {qtyincrease}");
+                var qty = new SearchedFifthProductPage(driver);
+                qty.QtyIncrease(excelData.QtyIncrease);
+                
+
             }
         }
     }

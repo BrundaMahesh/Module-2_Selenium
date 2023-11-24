@@ -36,7 +36,7 @@ namespace Naaptol.Utilities
                             ExcelData excelData = new ExcelData
                             {
                                 SearchText = GetValueOrDefault(row, "searchtext"),
-                              
+                                QtyIncrease = GetValueOrDefault(row,"qtyincrease")
                             };
 
                             excelDataList.Add(excelData);
