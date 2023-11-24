@@ -27,6 +27,10 @@ namespace Naaptol.PageObjects
         [FindsBy(How = How.XPath, Using = "//input[@class='input_Special_2']")]
         public IWebElement? Qty { get; set; }
 
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"cartData\"]/li[1]/div[2]/p[2]")]
+        public IWebElement? Remove { get; set; }
+
+
         [FindsBy(How = How.XPath, Using = "//a[@class='fancybox-item fancybox-close']")]
         public IWebElement? CloseButton { get; set; }
 
@@ -49,6 +53,10 @@ namespace Naaptol.PageObjects
             //Qty?.SendKeys(Keys.Clear);
             Qty?.SendKeys(qty);
             
+        }
+        public void ClickRemove()
+        {
+            Remove?.Click();
         }
     }
 }

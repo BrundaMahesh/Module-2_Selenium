@@ -58,12 +58,15 @@ namespace Naaptol.TestScripts
 
                 
 
-                string?  qtyincrease = excelData?.QtyIncrease;
+                //string?  qtyincrease = excelData?.QtyIncrease;
 
-                Console.WriteLine($"Qty increase: {qtyincrease}");
-                var qty = new SearchedFifthProductPage(driver);
-                qty.QtyIncrease(excelData.QtyIncrease);
+                //Console.WriteLine($"Qty increase: {qtyincrease}");
+                //var qty = new SearchedFifthProductPage(driver);
+                //qty.QtyIncrease(excelData.QtyIncrease);
                 
+
+                var remove = new SearchedFifthProductPage(driver);
+                remove.ClickRemove();
 
             }
         }
