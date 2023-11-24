@@ -44,6 +44,8 @@ namespace SeleniumNUnitExamples
                 gsButton.Click();
                 Assert.That(driver.Title,Is.EqualTo(excelData.SearchText + " - Google Search"));
                 Console.WriteLine("GS test - Pass");
+
+                driver.Navigate().GoToUrl("https://www.google.com");
             }
         }
         [Ignore("other")]
