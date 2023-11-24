@@ -1,4 +1,5 @@
 ﻿using Naaptol.PageObjects;
+using Naaptol.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,25 +20,42 @@ namespace Naaptol.TestScripts
             {
                 driver.Navigate().GoToUrl("https://www.naaptol.com/");
             }
-            naaptolhomepage.SearchClick("eyewear");
-            
+            //naaptolhomepage.SearchClick(excelData.SearchText);
 
-            var searchedProductListPage = new SearchedProductListPage(driver);
-            searchedProductListPage.SelectedProduct();
+            string? currDir = Directory.GetParent(@"../../../")?.FullName;
+            string? excelFilePath = currDir + "/TestData/InputData.xlsx";
+            string? sheetName = "SearchProduct";
 
-            List<string> nextwindow = driver.WindowHandles.ToList();
-            driver.SwitchTo().Window(nextwindow[1]);
+            List<ExcelData> excelDataList = ExcelUtils.ReadExcelData(excelFilePath, sheetName);
 
-            Thread.Sleep(2000);
-            var buyNow = new SearchedFifthProductPage(driver);
-            buyNow.Sizeselect();
-            Thread.Sleep(2000);
+            foreach (var excelData in excelDataList)
+            {
 
-            buyNow.BuyNowButtonClicked();
-            //Thread.Sleep(2000);
+                string? searchText = excelData?.SearchText;
 
-            buyNow.CloseButtonClicked();
-            Thread.Sleep(2000);
+                Console.WriteLine($"Search text: {searchText}");
+
+                naaptolhomepage.SearchClick(excelData.SearchText);
+
+
+
+                var searchedProductListPage = new SearchedProductListPage(driver);
+                searchedProductListPage.SelectedProduct();
+
+                List<string> nextwindow = driver.WindowHandles.ToList();
+                driver.SwitchTo().Window(nextwindow[1]);
+
+                Thread.Sleep(2000);
+                var buyNow = new SearchedFifthProductPage(driver);
+                buyNow.Sizeselect();
+                Thread.Sleep(2000);
+
+                buyNow.BuyNowButtonClicked();
+                //Thread.Sleep(2000);
+
+                // buyNow.CloseButtonClicked();
+                Thread.Sleep(2000);
+            }
         }
     }
 }

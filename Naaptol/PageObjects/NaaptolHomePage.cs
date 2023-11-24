@@ -22,9 +22,9 @@ namespace Naaptol.PageObjects
         public IWebElement? SearchInputBox { get; set; }
 
         //Act
-        public void SearchClick(string productName)
+        public void SearchClick(string searchText)
         {
-            SearchInputBox?.SendKeys(productName);
+            SearchInputBox?.SendKeys(searchText);
             SearchInputBox?.SendKeys(Keys.Enter);
         }
     }

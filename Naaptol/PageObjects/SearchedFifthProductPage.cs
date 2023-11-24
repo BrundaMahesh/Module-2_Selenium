@@ -18,14 +18,18 @@ namespace Naaptol.PageObjects
         }
 
         //Arrange
-        [FindsBy(How = How.XPath, Using = "//a[text()='Black-2.50']")]
+        [FindsBy(How = How.XPath, Using = "//a[text()='Brown-2.50']")]
         public IWebElement? SelectedSize { get; set; }
         
         [FindsBy(How = How.XPath, Using = "//a[@id='cart-panel-button-0']")]
         public IWebElement? BuyButton { get; set; }
 
+        [FindsBy(How = How.ClassName, Using = "input_Special_2")]
+        public IWebElement? Qty { get; set; }
+
         [FindsBy(How = How.XPath, Using = "//a[@class='fancybox-item fancybox-close']")]
         public IWebElement? CloseButton { get; set; }
+
 
         //Act
         public void Sizeselect()
