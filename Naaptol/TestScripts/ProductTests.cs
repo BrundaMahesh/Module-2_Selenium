@@ -34,7 +34,7 @@ namespace Naaptol.TestScripts
             Thread.Sleep(2000);
 
             buyNow.BuyNowButtonClicked();
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
 
             buyNow.CloseButtonClicked();
             Thread.Sleep(2000);

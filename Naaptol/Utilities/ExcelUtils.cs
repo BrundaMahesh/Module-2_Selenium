@@ -35,12 +35,8 @@ namespace Naaptol.Utilities
                         {
                             ExcelData excelData = new ExcelData
                             {
-                                FirstName = GetValueOrDefault(row, "firstname"),
-                                LastName = GetValueOrDefault(row, "lastname"),
-                                Email = GetValueOrDefault(row, "email"),
-                                Password = GetValueOrDefault(row, "pwd"),
-                                ConfirmPassword = GetValueOrDefault(row, "conpwd"),
-                                MobileNumber = GetValueOrDefault(row, "mbno")
+                                SearchText = GetValueOrDefault(row, "searchtext"),
+                              
                             };
 
                             excelDataList.Add(excelData);
