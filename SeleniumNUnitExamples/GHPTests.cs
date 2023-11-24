@@ -22,18 +22,29 @@ namespace SeleniumNUnitExamples
             Console.WriteLine("Title test - Pass");
         }
 
-        [Ignore("other")]
+        //[Ignore("other")]
         [Test]
         [Order(1)]
         public void GSTest()
         {
-            IWebElement searchInputTextBox = driver.FindElement(By.Id("APjFqb"));
-            searchInputTextBox.SendKeys("Dell laptop");
-            Thread.Sleep(2000);
-            IWebElement gsButton = driver.FindElement(By.ClassName("gNO89b"));
-            gsButton.Click();
-            Assert.AreEqual("Dell laptop - Google Search", driver.Title);
-            Console.WriteLine("GS test - Pass");
+            string? currDir = Directory.GetParent(@"../../../")?.FullName;
+            string? excelFilePath = currDir + "\\InputData.xlsx";
+            Console.WriteLine(excelFilePath);
+
+            List<ExcelData> excelDataList = ExcelUtils.ReadExcelData(excelFilePath);
+
+            foreach (var excelData in excelDataList)
+            {
+                Console.WriteLine($"Text: {excelData.SearchText}");
+
+                IWebElement searchInputTextBox = driver.FindElement(By.Id("APjFqb"));
+                searchInputTextBox.SendKeys(excelData.SearchText);
+                Thread.Sleep(2000);
+                IWebElement gsButton = driver.FindElement(By.ClassName("gNO89b"));
+                gsButton.Click();
+                Assert.That(driver.Title,Is.EqualTo(excelData.SearchText + " - Google Search"));
+                Console.WriteLine("GS test - Pass");
+            }
         }
         [Ignore("other")]
         [Test]
