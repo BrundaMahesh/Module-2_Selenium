@@ -13,7 +13,7 @@ namespace SeleniumNUnitExamples
         public static List<ExcelData> ReadExcelData(string excelFilePath)
         {
             List<ExcelData> excelDataList = new List<ExcelData>();
-            Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             using(var stream=File.Open(excelFilePath,FileMode.Open,FileAccess.Read))
             {
