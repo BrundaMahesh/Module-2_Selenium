@@ -45,28 +45,22 @@ namespace Naaptol.TestScripts
                 List<string> nextwindow = driver.WindowHandles.ToList();
                 driver.SwitchTo().Window(nextwindow[1]);
 
-                Thread.Sleep(2000);
+             
                 var buyNow = new SearchedFifthProductPage(driver);
                 buyNow.Sizeselect();
-                Thread.Sleep(2000);
 
                 buyNow.BuyNowButtonClicked();
-                //Thread.Sleep(2000);
 
-                // buyNow.CloseButtonClicked();
-                //Thread.Sleep(2000);
-
-                
+               
 
                 //string?  qtyincrease = excelData?.QtyIncrease;
 
                 //Console.WriteLine($"Qty increase: {qtyincrease}");
-                //var qty = new SearchedFifthProductPage(driver);
-                //qty.QtyIncrease(excelData.QtyIncrease);
-                
 
-                var remove = new SearchedFifthProductPage(driver);
-                remove.ClickRemove();
+                //buyNow.QtyIncrease(excelData.QtyIncrease);
+
+                //buyNow.ClickRemove();
+                //buyNow.CloseButtonClicked();
 
             }
         }

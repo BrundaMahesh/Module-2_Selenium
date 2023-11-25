@@ -27,11 +27,11 @@ namespace Naaptol.PageObjects
         [FindsBy(How = How.XPath, Using = "//input[@class='input_Special_2']")]
         public IWebElement? Qty { get; set; }
 
-        [FindsBy(How = How.XPath, Using = "//*[@id=\"cartData\"]/li[1]/div[2]/p[2]")]
+        [FindsBy(How = How.XPath, Using = "//*[@id=\"cartData\"]/li[1]/div[2]/p[2]/a")]
         public IWebElement? Remove { get; set; }
 
 
-        [FindsBy(How = How.XPath, Using = "//a[@class='fancybox-item fancybox-close']")]
+        [FindsBy(How = How.XPath, Using = "//*[@title='Close']")]
         public IWebElement? CloseButton { get; set; }
 
 
@@ -50,8 +50,10 @@ namespace Naaptol.PageObjects
         }
         public void QtyIncrease(string qty)
         {
-            //Qty?.SendKeys(Keys.Clear);
+            //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+            //js.ExecuteScript("arguments[0].setAttribute('value','2')", Qty);
             Qty?.SendKeys(qty);
+            Qty?.SendKeys(Keys.Enter);
             
         }
         public void ClickRemove()
