@@ -52,11 +52,9 @@ namespace Naaptol.TestScripts
             {
 
                 string? searchText = excelData?.SearchText;
-
                 Console.WriteLine($"Search text: {searchText}");
-
                 naaptolhomepage.SearchClick(excelData.SearchText);
-
+                TakeScreenShot();
 
 
                 var searchedProductListPage = new SearchedProductListPage(driver);
@@ -70,21 +68,18 @@ namespace Naaptol.TestScripts
                 buyNow.Sizeselect();
 
                 buyNow.BuyNowButtonClicked();
-                Thread.Sleep(4000);
-
-               
+                TakeScreenShot();
+          
 
                 string?  qtyincrease = excelData?.QtyIncrease;
-
                 Console.WriteLine($"Qty increase: {qtyincrease}");
-
                 buyNow.QtyIncrease(excelData.QtyIncrease);
-                Thread.Sleep(3000);
+               
 
                 buyNow.ClickRemove();
                 Thread.Sleep(3000);
                 buyNow.CloseButtonClicked();
-                Thread.Sleep(3000);
+                TakeScreenShot();
 
             }
         }
