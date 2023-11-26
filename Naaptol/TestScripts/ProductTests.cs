@@ -80,6 +80,12 @@ namespace Naaptol.TestScripts
                 Thread.Sleep(3000);
                 buyNow.CloseButtonClicked();
                 TakeScreenShot();
+               
+                driver.Close();
+                Thread.Sleep(5000);
+                driver.SwitchTo().Window(nextwindow[0]);
+                driver.SwitchTo().DefaultContent();
+
 
             }
         }
