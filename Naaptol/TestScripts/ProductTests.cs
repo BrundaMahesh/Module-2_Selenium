@@ -1,5 +1,6 @@
 ﻿using Naaptol.PageObjects;
 using Naaptol.Utilities;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,25 @@ namespace Naaptol.TestScripts
                 driver.Navigate().GoToUrl("https://www.naaptol.com/");
             }
             //naaptolhomepage.SearchClick(excelData.SearchText);
+
+
+            try
+            {
+                Assert.That(driver.Url.Contains("naaptol"));
+                test = extent.CreateTest("Search Product Test");
+                test.Pass("Search product success");
+
+            }
+            catch (AssertionException)
+            {
+                test = extent.CreateTest("Search Product Test");
+                test.Fail("Search product failed");
+
+            }
+
+
+            Assert.That(driver.Url.Contains("naaptol"));
+
 
             string? currDir = Directory.GetParent(@"../../../")?.FullName;
             string? excelFilePath = currDir + "/TestData/InputData.xlsx";
@@ -50,17 +70,21 @@ namespace Naaptol.TestScripts
                 buyNow.Sizeselect();
 
                 buyNow.BuyNowButtonClicked();
+                Thread.Sleep(4000);
 
                
 
-                //string?  qtyincrease = excelData?.QtyIncrease;
+                string?  qtyincrease = excelData?.QtyIncrease;
 
-                //Console.WriteLine($"Qty increase: {qtyincrease}");
+                Console.WriteLine($"Qty increase: {qtyincrease}");
 
-                //buyNow.QtyIncrease(excelData.QtyIncrease);
+                buyNow.QtyIncrease(excelData.QtyIncrease);
+                Thread.Sleep(3000);
 
-                //buyNow.ClickRemove();
-                //buyNow.CloseButtonClicked();
+                buyNow.ClickRemove();
+                Thread.Sleep(3000);
+                buyNow.CloseButtonClicked();
+                Thread.Sleep(3000);
 
             }
         }
