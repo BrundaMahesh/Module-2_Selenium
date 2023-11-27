@@ -48,13 +48,17 @@ namespace Naaptol.PageObjects
         {
             CloseButton?.Click();
         }
-        public void QtyIncrease(string qty)
+        public void QtyIncrease()
         {
             //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             //js.ExecuteScript("arguments[0].setAttribute('value','2')", Qty);
-            Qty?.SendKeys(Keys.Backspace);
-            Qty?.SendKeys(qty);
-            Qty?.SendKeys(Keys.Enter);
+            int q = Convert.ToInt32(Qty?.GetAttribute("value"));
+            q++;
+            Qty.Clear();
+            Qty.SendKeys(q.ToString());
+            //Qty?.SendKeys(Keys.Backspace);
+            //Qty?.SendKeys(qty);
+            //Qty?.SendKeys(Keys.Enter);
             
         }
         public void ClickRemove()
