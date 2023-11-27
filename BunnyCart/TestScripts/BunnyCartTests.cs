@@ -78,21 +78,10 @@ namespace BunnyCart.TestScripts
 
                 bunnyCartHomePage.ClickCreateAccountButton(firstName, lastName, email, pwd, conpwd, mbno);
                 
-
             }
+            Log.CloseAndFlush();
 
         }
-        //try
-        //{
-        //    Assert.That(driver.FindElement(By.XPath("//div[" + "@class='modal-inner-wrap']//following::h1[2]")).Text,
-        //        Is.EqualTo("Create an Account"));
-        //    bunnyCartHomePage.ClickCreateAccountButton("raj", "kumar", "raj@gmail.com", "12345", "12345", "9876543423");
-        //}
-        //catch(AssertionException)
-        //{
-        //    Console.WriteLine("Sign Up failed");
-        //}
-
     }
 }
 
