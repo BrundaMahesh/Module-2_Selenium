@@ -1,5 +1,5 @@
-﻿using CompleteCode.PageObjects;
-using CompleteCode.Utilities;
+﻿using CompleteCodes.PageObjects;
+using CompleteCodes.Utilities;
 using OpenQA.Selenium;
 using Serilog;
 using System;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompleteCode.TestScripts
+namespace CompleteCodes.TestScripts
 {
     internal class LoginModuleTests : CoreCodes
     {

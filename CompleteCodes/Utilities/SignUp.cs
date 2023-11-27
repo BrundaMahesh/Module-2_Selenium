@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CompleteCode
+namespace CompleteCodes
 {
     public class SignUp
     {

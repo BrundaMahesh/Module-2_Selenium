@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CompleteCode.Utilities;
+using CompleteCodes.Utilities;
 
-namespace CompleteCode.PageObjects
+namespace CompleteCodes.PageObjects
 {
     internal class HomePage
     {

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Text;
 
-namespace CompleteCode.Utilities
+namespace CompleteCodes.Utilities
 {
     internal class ExcelUtils
     {

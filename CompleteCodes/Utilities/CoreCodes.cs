@@ -10,7 +10,7 @@ using AventStack.ExtentReports.Reporter;
 using AventStack.ExtentReports;
 using Serilog;
 
-namespace CompleteCode.Utilities
+namespace CompleteCodes.Utilities
 {
     internal class CoreCodes
     {
