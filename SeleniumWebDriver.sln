@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Naaptol-Assignment-22-11-20
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BunnyCart", "BunnyCart\BunnyCart.csproj", "{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteCode", "C:\Users\Administrator\Downloads\CompleteCode\CompleteCode.csproj", "{D2CAA26C-24CB-4780-8F21-4AC5B2FAB88D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompleteCodes", "CompleteCodes\CompleteCodes.csproj", "{DDDABD7D-1381-41A1-B3FF-2CC045A9D415}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,10 +59,10 @@ Global
 		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E56A619D-17DE-4272-9E6F-70F5FA7A6C44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D2CAA26C-24CB-4780-8F21-4AC5B2FAB88D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D2CAA26C-24CB-4780-8F21-4AC5B2FAB88D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D2CAA26C-24CB-4780-8F21-4AC5B2FAB88D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D2CAA26C-24CB-4780-8F21-4AC5B2FAB88D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDDABD7D-1381-41A1-B3FF-2CC045A9D415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDDABD7D-1381-41A1-B3FF-2CC045A9D415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDDABD7D-1381-41A1-B3FF-2CC045A9D415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDDABD7D-1381-41A1-B3FF-2CC045A9D415}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
