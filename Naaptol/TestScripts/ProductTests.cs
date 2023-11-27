@@ -74,7 +74,7 @@ namespace Naaptol.TestScripts
                 string?  qtyincrease = excelData?.QtyIncrease;
                 Console.WriteLine($"Qty increase: {qtyincrease}");
                 buyNow.QtyIncrease(excelData.QtyIncrease);
-               
+                Thread.Sleep(2000);
 
                 buyNow.ClickRemove();
                 Thread.Sleep(3000);

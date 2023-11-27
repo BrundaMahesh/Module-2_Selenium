@@ -52,6 +52,7 @@ namespace Naaptol.PageObjects
         {
             //IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
             //js.ExecuteScript("arguments[0].setAttribute('value','2')", Qty);
+            Qty?.SendKeys(Keys.Backspace);
             Qty?.SendKeys(qty);
             Qty?.SendKeys(Keys.Enter);
             
