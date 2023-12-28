@@ -1,6 +1,7 @@
 ﻿using CompleteCodes.PageObjects;
 using CompleteCodes.Utilities;
 using OpenQA.Selenium;
+using OpenQA.Selenium.DevTools.V117.Debugger;
 using Serilog;
 using System;
 using System.Collections.Generic;
@@ -31,16 +32,20 @@ namespace CompleteCodes.TestScripts
             bchp.ClickCreateAnAccountLink();
             Log.Information("Create Account Link Clicked");
             Thread.Sleep(2000);
+            
+
+            TakeScreenShot();
 
             try
             {
-        /*       Assert.That(driver?.FindElement(By.XPath("//div[" +
-                    "@class='modal-inner-wrap']//following::h1[2]")).Text,
-                    Is.EqualTo("Create an Account"));*/
-              
+                /*       Assert.That(driver?.FindElement(By.XPath("//div[" +
+                            "@class='modal-inner-wrap']//following::h1[2]")).Text,
+                            Is.EqualTo("Create an Account"));*/
+
+                
                 Assert.IsTrue(driver?.FindElement(By.XPath(
                     "//div[@class='modal-inner-wrap']//following::h1[2]")).Text 
-                    == "Create an Account", $"Test failed for Create Account");
+                    == "Create  Account", $"Test failed for Create Account");
 
                 Log.Information ("Test passed for Create Account");
 
@@ -50,17 +55,20 @@ namespace CompleteCodes.TestScripts
             }
             catch (AssertionException ex)
             {
+               
                 Log.Error($"Test failed for Create Account. \n Exception: {ex.Message}");
 
                 test = extent.CreateTest("Create Account Link Test");
                 test.Fail("Create Account Link failed");
-            }
+                
 
+            }
+           
             string? excelFilePath = currdir + "/TestData/InputData.xlsx";
             string? sheetName = "CreateAccount";
 
             List<SignUp> excelDataList = ExcelUtils.ReadSignUpExcelData(excelFilePath, sheetName);
-
+            Log.Information("Reading");
             foreach (var excelData in excelDataList)
             {
                 string? firstName = excelData?.FirstName;
@@ -74,6 +82,7 @@ namespace CompleteCodes.TestScripts
                 bchp.CreateAccount(firstName, lastName, email, pwd, conpwd, mbno);
                 //Assert  .........
             }
+            Log.Information("DD");
             Log.CloseAndFlush();
         }
 

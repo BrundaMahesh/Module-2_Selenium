@@ -19,6 +19,8 @@ namespace BunnyCart.TestScripts
         {
             string? currDir1 = Directory.GetParent(@"../../../")?.FullName;
             string? logfilepath = currDir1 + "/Logs/log_" + DateTime.Now.ToString("yyyy/MM/dd_HHmmss") + ".txt";
+            
+            test = extent.CreateTest("Create Account Link Test");
 
             Log.Logger = new LoggerConfiguration()
                 .WriteTo.Console()
@@ -39,9 +41,13 @@ namespace BunnyCart.TestScripts
                     =="Create an Account",$"Test failed for Create Account");
                 Log.Information("Test passed for Create Account");
 
-                test = extent.CreateTest("Create Account Link Test");
-                test.Pass("Create Account Link success");
+                TakeScreenShot();
                 
+
+                test.Pass("Create Account Link success");
+                var ss = ((ITakesScreenshot)driver).GetScreenshot().AsBase64EncodedString;
+                test.AddScreenCaptureFromBase64String(ss);
+
             }
             catch(AssertionException ex)
             {
@@ -49,7 +55,9 @@ namespace BunnyCart.TestScripts
 
                 test = extent.CreateTest("Create Account Link Test");
                 test.Fail("Create Account Link failed");
-                
+                var ss = ((ITakesScreenshot)driver).GetScreenshot().AsBase64EncodedString;
+                test.AddScreenCaptureFromBase64String(ss);
+
             }
 
 
